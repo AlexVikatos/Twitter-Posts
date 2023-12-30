@@ -1,4 +1,4 @@
-
+#Author: Alex Vikatos
 
 
 
@@ -36,7 +36,11 @@ df1 %>%
   head(10) %>%
   gt() %>%
   gt_img_rows(columns = 2, height = 25) %>%
+  fmt_number(columns = c(EFG),decimals = 2)%>%
+  tab_footnote(footnote="Author: Alex Vikatos")%>%
   cols_label(athlete_display_name = "Name", EFG = "EFG",athlete_id="",total_points="TOTAL POINTS") %>%
-  tab_header(title = "Exploring the EFG of the Top-10 NBA Scorers", subtitle = "Source: NBA Stats/hoopR") %>%
-  tab_options(data_row.padding = px(10), heading.title.font.size = 18, heading.subtitle.font.size = 16, table.font.size = 15)
+  tab_header(title = "Exploring the EFG of the Top-10 NBA Scorers",subtitle = "Data:hoopR/NBAstats") %>%
+  tab_options(data_row.padding = px(10), heading.title.font.size = 18, heading.subtitle.font.size = 16, table.font.size = 15)%>%
+  tab_style(style=list(cell_text(weight = "bold")),locations = cells_body(columns=c(athlete_display_name,EFG,total_points)))
+                                                   
 
